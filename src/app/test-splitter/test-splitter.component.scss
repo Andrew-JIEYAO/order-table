@@ -1,0 +1,12 @@
+:host ::ng-deep{
+
+  .card{
+    border-color: red;
+
+  }
+
+  & s.sp{
+    border: none;
+  }
+
+}

@@ -1,0 +1,33 @@
+<div class="card">
+  <span style="display: flex; gap: 0.5rem">
+    <!-- <p-checkbox [(ngModel)]="checked" [binary]="true" inputId="binary"></p-checkbox> -->
+    <ng-content></ng-content>
+    <h3 id="title">疾病診斷(A)</h3>
+  </span>
+  <p-table [value]="diagList" styleClass="p-datatable-sm" [autoLayout]="true">
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="min-width: 5vw">類別</th>
+        <th style="min-width: 6vw">診斷代碼</th>
+        <th style="width: 100vw">診斷名稱</th>
+        <th style="width: 5vw">慢性</th>
+        <th>R/O</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-diagList>
+      <tr>
+        <td>{{ diagList.category }}</td>
+        <td>{{ diagList.diagCode }}</td>
+        <td>{{ diagList.diagName }}</td>
+        <td>{{ diagList.chronic }}</td>
+        <td>
+          <p-checkbox
+            [(ngModel)]="diagList.ro"
+            [binary]="true"
+            [disabled]="true"
+          ></p-checkbox>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

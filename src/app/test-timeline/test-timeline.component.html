@@ -1,0 +1,9 @@
+<div>
+  <p-timeline [value]="events" align="alternate">
+    <ng-template pTemplate="content" let-event>
+      <div [style.height]="event.height">
+        {{ event.status }}
+      </div>
+    </ng-template>
+  </p-timeline>
+</div>

@@ -1,0 +1,77 @@
+<div class="card">
+  <p-table selectionMode="single" styleClass="p-datatable-gridlines" [value]="prescriptions"  selectionMode="multiple"  dataKey="id">
+    <ng-template pTemplate="header" >
+      <tr>
+        <th></th>
+        <th>！</th>
+        <th>藥品名稱</th>
+        <th>劑量</th>
+        <th>單位</th>
+        <th>使用劑量</th>
+        <th>途徑</th>
+        <th>頻率</th>
+        <th>磨粉</th>
+        <th>囑咐</th>
+        <th>天數</th>
+        <th>總量</th>
+        <th>單位</th>
+        <th>自費</th>
+        <th>單價</th>
+        <th>醫囑代碼</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-prescriptions let-rowIndex="rowIndex">
+      <tr [ngClass]="{'delete-line':deletedRows.includes(rowIndex)}" [style.background-color]="getStates(prescriptions.state)"   >
+        <!-- {'delete-line':deletedRows.includes(rowIndex)} [style.background-color]="getStates(prescriptions.state)"-->
+        <td >
+          <!-- 新增 -->
+          <p-button *ngIf="prescriptions.state === 1"  icon="pi pi-plus" styleClass="p-button-rounded p-button-text p-button-success" (click)="addPrescroptions()"></p-button>
+          <!-- 修改 -->
+          <p-button *ngIf="prescriptions.state === 2"  icon="pi pi-undo" styleClass="p-button-rounded  p-button-info p-button-text" (click)="revisePrescroptions()"></p-button>
+          <!-- 刪除 -->
+          <p-button *ngIf="prescriptions.state === 3"  icon="pi pi-times" styleClass="p-button-rounded p-button-danger p-button-text" (click)="deletePrescroptions(rowIndex)"></p-button>
+          <!-- <p-splitButton icon="pi pi-times-circle" [model]="this.items" (onClick)="save('info')" styleClass="p-button-text p-button-secondary mr-2 mb-2"></p-splitButton> -->
+          <!-- <span *ngIf="prescriptions.state === 3" (click)="deletePrescroptions(rowIndex)">
+            <i class="pi pi-times-circle"></i>
+            <i class="pi pi-angle-down"></i>
+          </span> -->
+
+          <!-- 原始 -->
+          <p-button *ngIf="prescriptions.state === 4"  icon="pi pi-check" styleClass="p-button-rounded p-button-secondary p-button-text"></p-button>
+
+        </td>
+        <td>{{ prescriptions.resistance}}</td>
+        <td>{{ prescriptions.drugName}}</td>
+        <td>{{ prescriptions.dose}}</td>
+        <td>{{ prescriptions.unit}}</td>
+        <td>{{ prescriptions.doseUse		}}</td>
+        <td>{{ prescriptions.way}}</td>
+        <td>{{ prescriptions.frequency	}}</td>
+        <td>
+          <!-- <p-tableCheckbox [ariaChecked]="prescriptions.grinding === false" ></p-tableCheckbox> -->
+          <!-- <p-checkbox *ngIf="prescriptions" [disabled]="true"></p-checkbox> -->
+          <p-checkbox [value]="prescriptions.grinding" [disabled]="prescriptions.grinding===false"></p-checkbox>
+        </td>
+        <td>{{ prescriptions.enjoin}}</td>
+        <td>{{ prescriptions.day	}}</td>
+        <td>{{ prescriptions.total}}</td>
+        <td>{{ prescriptions.unit2}}</td>
+        <td><p-checkbox [value]="prescriptions.ownExpensey" ></p-checkbox></td>
+        <td>{{ prescriptions.price | number:'.2'}}</td>
+        <td>{{ prescriptions.orderId}}</td>
+      </tr>
+    </ng-template>
+
+
+  </p-table>
+</div>
+
+<!-- <button (click)="toggleDeleteLine()">切換刪除線</button>
+<table>
+  <tr *ngFor="let product of products" [ngClass]="{'delete-line': showDeleteLine}">
+    <td>{{ product.name }}</td>
+    <td>{{ product.price }}</td>
+  </tr>
+</table> -->
+

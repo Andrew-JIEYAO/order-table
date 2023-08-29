@@ -1,0 +1,80 @@
+<p-button label="show" (click)="showDiaglog()"></p-button>
+
+<p-dialog [(visible)]="visiable" [resizable]="false" [blockScroll]="false">
+  <ng-template pTemplate="header">
+    <h4>{{ title }}</h4>
+  </ng-template>
+
+  <ng-template pTemplate="content">
+    <div class="toolbar">
+      <div class="dropbar">
+        <h3>院所</h3>
+        <p-dropdown
+          [options]="institutions"
+          filterBy="display"
+          placeholder="請選擇"
+          optionLabel="display"
+        ></p-dropdown>
+      </div>
+      <div>
+        <p-button type="button" styleClass="p-button-secondary">取消</p-button>
+        <p-button type="button" styleClass="p-button-success">帶入</p-button>
+      </div>
+    </div>
+
+    <div class="cardsection">
+      <div class="visit">
+        <app-visit-list></app-visit-list>
+      </div>
+      <p-scrollPanel [style]="{'height': '75vh' }">
+        <div class="visitsection">
+        <app-note-list>
+          <p-checkbox
+            [(ngModel)]="checked"
+            [binary]="true"
+          ></p-checkbox>
+        </app-note-list>
+        <app-note-list>
+          <p-checkbox
+            [(ngModel)]="checked"
+            [binary]="true"
+          ></p-checkbox>
+        </app-note-list>
+
+        <app-diag-list [diagList]="diagList">
+          <p-checkbox
+            [(ngModel)]="checked"
+            [binary]="true"
+          ></p-checkbox>
+        </app-diag-list>
+
+        <div class="card">
+          <h3 id="title">治療計畫(P)</h3>
+          <app-drug-list [drugList]="drugList">
+            <p-checkbox
+              [value]="drugList"
+              [(ngModel)]="checked"
+              [binary]="true"
+            ></p-checkbox>
+          </app-drug-list>
+          <br />
+          <app-exam-list [examList]="examList">
+            <p-checkbox
+              [(ngModel)]="checked"
+              [binary]="true"
+
+            ></p-checkbox>
+          </app-exam-list>
+        </div>
+        <app-note-list>
+          <p-checkbox
+            [(ngModel)]="checked"
+            [binary]="true"
+          ></p-checkbox>
+        </app-note-list>
+      </div>
+      </p-scrollPanel>
+
+    </div>
+  </ng-template>
+</p-dialog>

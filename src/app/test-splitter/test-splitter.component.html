@@ -1,0 +1,20 @@
+<!-- <p-splitter [panelSizes]="[25, 75]" [style]="{height:'300px'}" styleClass="mb-5"  layout="vertical">
+  <ng-template pTemplate>
+    <div class="col flex align-items-center justify-content-center">Panel 1</div>
+  </ng-template>
+  <ng-template pTemplate>
+    <div class="col flex align-items-center justify-content-center">Panel 2</div>
+</ng-template>
+</p-splitter> -->
+<!-- <p-header><h1>Hello</h1></p-header> -->
+<div class="card">
+  <p-splitter [style]="{ height: '98vh',border:'none' }"  [panelSizes]="[80, 20]" class="sp">
+    <ng-template pTemplate>
+      <p-splitter layout="vertical" [panelSizes]="[20, 80]">
+        <ng-template pTemplate>panel 1</ng-template>
+        <ng-template pTemplate>panel 2</ng-template>
+      </p-splitter>
+    </ng-template>
+    <ng-template pTemplate>panel 3</ng-template>
+  </p-splitter>
+</div>

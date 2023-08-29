@@ -1,0 +1,31 @@
+<span style="display: flex; gap: 0.5rem">
+  <!-- <p-checkbox [(ngModel)]="checked" [binary]="true" inputId="binary"></p-checkbox> -->
+  <ng-content></ng-content>
+  <h4 id="title">檢驗檢查及治療</h4>
+</span>
+<p-table [value]="examList" styleClass="p-datatable-sm" [resizableColumns]="true">
+  <ng-template pTemplate="header">
+    <tr>
+        <th>檢驗檢查及處置名稱</th>
+        <th>次數</th>
+        <th>頻率</th>
+        <th>檢查摘要</th>
+        <th style="width: 100vh;">囑咐</th>
+        <th>自費</th>
+        <th>單價</th>
+        <th>檢查代碼</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-examList>
+    <tr>
+      <td>{{ examList.name}}</td>
+        <td>{{ examList.times}}</td>
+        <td>{{ examList.fequency}}</td>
+        <td>{{ examList.summary}}</td>
+        <td>{{ examList.order		}}</td>
+        <td><p-checkbox [value]="examList.ownExpensey" [(ngModel)]="examList.ownExpensey" [binary]="true" [disabled]="true" ></p-checkbox></td>
+        <td>{{ examList.price | number:'.2'}}</td>
+        <td>{{ examList.checkCode}}</td>
+    </tr>
+  </ng-template>
+</p-table>

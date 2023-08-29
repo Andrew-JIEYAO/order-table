@@ -1,0 +1,82 @@
+<!-- 中國醫 source code -->
+<div *ngIf="value">
+  <ng-container *ngFor="let val of value">
+    <p-card>
+      <ng-container *ngFor="let col of columns">
+        <ng-container *ngIf="!col.isHidden && col.field === 'image'">
+          <div>
+            <ng-container *ngIf="val[col.field] !== ''">
+              <P class="col-style">
+                <img
+                  class="img"
+                  src="{{ val[col.field] }}"
+                  style="height: 30px; width: 30px"
+                />
+              </P>
+            </ng-container>
+            <ng-container *ngIf="val[col.field] === ''">
+              <h3>沒有圖片</h3>
+            </ng-container>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="!col.isHidden && col.field !== 'image'">
+          <ng-container *ngIf="val[col.field] === ''">
+            <span> {{ col.header }} : 無 </span>
+          </ng-container>
+          <ng-container *ngIf="val[col.field] !== ''">
+            <ng-container *ngIf="!col.dateFormat">
+              <span> {{ col.header }} : {{ val[col.field] }} </span>
+            </ng-container>
+            <ng-container *ngIf="col.dateFormat">
+              <span>
+                {{ col.header }} : {{ val[col.field] | date : col.dateFormat }}
+              </span>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </p-card>
+
+    <br />
+  </ng-container>
+</div>
+
+
+<!-- primage listbox -->
+<!-- <div class="image-list">
+  <p-listbox
+    [options]="images"
+    optionLabel="title"
+    [style]="{ width: '300px' }"
+  >
+    <ng-template let-image pTemplate="item">
+      <div class="image-item">
+        <img [src]="image.url" alt="Image" style="height: 60px; width: 60px" />
+        <div class="image-details">
+          <h3>{{ image.title }}</h3>
+          <p>{{ image.description }}</p>
+        </div>
+      </div>
+    </ng-template>
+  </p-listbox>
+</div> -->
+
+
+
+<!-- 一般寫法 -->
+<!-- <div *ngFor="let image of images">
+  <img [src]="image.url" style="height: 60px; width: 60px;"/>
+
+</div> -->
+
+
+
+<div *ngIf="images" class="grid" style="max-width: 400px;">
+    <ng-container *ngFor="let image of images; let index = index;" class="col-3" key="index" styleClass="custom-lightbox" >
+        <img class="image-size" [ngClass]="{'enterbody':index === highlightedIndex}" [src]="image.url" [alt]="image.title" style="cursor: pointer" (click)="imageClick(index)"/>
+    </ng-container >
+    <!-- <p-lightbox [(visible)]="lightboxVisible" [images]="lightboxImages" [target]="target" styleClass="custom-lightbox"></p-lightbox> -->
+</div>
+
+
+<!-- <img src="assets/images/1.jpg" style="height: 100px; width: 100px; border: 9px solid red;"/> -->

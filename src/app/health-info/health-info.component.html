@@ -1,0 +1,21 @@
+<div>
+  <!-- <p-button
+  (click)="showDialog()"
+  icon="pi pi-pencil"
+  styleClass="p-button-success p-button-text"
+></p-button> -->
+  <div>
+    <p-button
+      label="身份"
+      (click)="showDialog()"
+      icon="pi pi-pencil"
+      styleClass="p-button-rounded p-button-success p-button-text"
+    ></p-button>
+    <span></span>
+  </div>
+</div>
+
+<app-health-dialog
+  [visible]="visible"
+  (visibleChange)="onVisibleChange($event)"
+></app-health-dialog>

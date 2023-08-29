@@ -1,0 +1,17 @@
+table {
+  border-collapse: collapse;
+}
+
+td {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.ui-state-highlight > td {
+  background-color: yellow; /* 修改選中行的背景顏色 */
+  color: red; /* 修改選中行的文字顏色 */
+}
+
+.selectRow{
+  background-color: yellow;
+}

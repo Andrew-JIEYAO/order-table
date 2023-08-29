@@ -1,0 +1,25 @@
+<p-table [value]="value" selectionMode="single" [scrollable]="true" scrollHeight="75vh" [resizableColumns]="true" styleClass="p-datatable-sm">
+  <!-- scrollHeight="75vh" -->
+  <ng-template pTemplate="header">
+    <tr>
+      <th pSortableColumn="visitDate">
+        看診日期 <p-sortIcon field="visitDate"></p-sortIcon>
+      </th>
+      <th pSortableColumn="division">
+        就診科別 <p-sortIcon field="division"></p-sortIcon>
+      </th>
+      <th pSortableColumn="doctor">
+        醫師 <p-sortIcon field="doctor"></p-sortIcon>
+      </th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-testdata>
+    <tr [pSelectableRow]="testdata">
+      <td>{{ testdata.visitDate}}</td>
+      <td>{{ testdata.division}}</td>
+      <td>{{ testdata.doctor}}</td>
+    </tr>
+  </ng-template>
+
+</p-table>

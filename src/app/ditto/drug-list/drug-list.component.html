@@ -1,0 +1,60 @@
+<span style="display: flex; gap: 0.5rem">
+  <!-- <p-checkbox [(ngModel)]="checked" [binary]="true" inputId="binary"></p-checkbox> -->
+  <ng-content></ng-content>
+  <h4 id="title">藥品處方</h4>
+</span>
+
+<p-table [value]="drugList" styleClass="p-datatable-sm" [tableStyle]="{'min-width': '50rem'}" [resizableColumns]="true">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>！</th>
+      <th style="width: 100vh;">藥品名稱</th>
+      <th>劑量</th>
+      <th>單位</th>
+      <th>使用劑量</th>
+      <th>途徑</th>
+      <th>頻率</th>
+      <th>磨粉</th>
+      <th style="width: 100vh;">囑咐</th>
+      <th>天數</th>
+      <th>總量</th>
+      <th>單位</th>
+      <th>自費</th>
+      <th>單價</th>
+      <th>醫囑代碼</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-drugList>
+    <tr>
+      <td>{{ drugList.resistance }}</td>
+      <td>{{ drugList.drugName }}</td>
+      <td>{{ drugList.dose }}</td>
+      <td>{{ drugList.unit }}</td>
+      <td>{{ drugList.doseUse }}</td>
+      <td>{{ drugList.way }}</td>
+      <td>{{ drugList.frequency }}</td>
+      <td>
+        <p-checkbox
+          [value]="drugList.grinding"
+          [disabled]="true"
+          [binary]="true"
+          [(ngModel)]="drugList.grinding"
+        ></p-checkbox>
+      </td>
+      <td>{{ drugList.enjoin }}</td>
+      <td>{{ drugList.day }}</td>
+      <td>{{ drugList.total }}</td>
+      <td>{{ drugList.unit2 }}</td>
+      <td>
+        <p-checkbox
+          [value]="drugList.ownExpensey"
+          [disabled]="true"
+          [binary]="true"
+          [(ngModel)]="drugList.ownExpensey"
+        ></p-checkbox>
+      </td>
+      <td>{{ drugList.price | number : ".2" }}</td>
+      <td>{{ drugList.orderId }}</td>
+    </tr>
+  </ng-template>
+</p-table>

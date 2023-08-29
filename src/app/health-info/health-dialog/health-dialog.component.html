@@ -1,0 +1,60 @@
+<p-dialog header="Header"  [modal]="true" [(visible)]="visible" (onHide)="doCloseDialog()">
+  <ng-template pTemplate="header" class="header" >
+    <span>請選擇健保資訊</span>
+  </ng-template>
+  <ng-template pTemplate="body">
+    <div class="card flex justify-content-center">
+      <label>健保身份：</label>
+      <p-autoComplete
+      [dropdown]="true"
+        field="name"
+      ></p-autoComplete>
+    </div>
+
+    <div class="card flex justify-content-center">
+      <label>一般身份：</label>
+      <p-autoComplete
+      [dropdown]="true"
+        field="name"
+      ></p-autoComplete>
+    </div>
+
+    <div class="card flex justify-content-center">
+      <label>部分負擔：</label>
+      <p-autoComplete
+      [dropdown]="true"
+        field="name"
+      ></p-autoComplete>
+    </div>
+
+    <div class="card flex justify-content-center">
+      <label>就醫卡號：</label>
+      <p-autoComplete
+      [dropdown]="true"
+        field="name"
+      ></p-autoComplete>
+    </div>
+
+    <div class="card flex justify-content-center">
+      <label>療程階段：</label>
+      <p-autoComplete
+      [dropdown]="true"
+        field="name"
+      ></p-autoComplete>
+    </div>
+
+    <div class="card flex justify-content-center">
+      <label>給付類別：</label>
+      <p-autoComplete
+      [dropdown]="true"
+        field="name"
+      ></p-autoComplete>
+    </div>
+
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <p-button styleClass="p-button-raised p-button-success" (click)="doModify()">確定</p-button>
+    <p-button styleClass="p-button-raised p-button-warning" (click)="doCloseDialog()">取消</p-button>
+  </ng-template>
+</p-dialog>

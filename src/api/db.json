@@ -1,0 +1,28 @@
+{
+  "health": [
+    {
+      "nhiType": "40",
+      "genType": "無",
+      "partType": "A12",
+      "visitSeqNo": "無",
+      "therapyBasic": "非療程",
+      "payType": "普通疾病"
+    },
+    {
+      "nhiType": "50",
+      "genType": "無",
+      "partType": "A14",
+      "visitSeqNo": "20",
+      "therapyBasic": "非療程",
+      "payType": "普通疾病"
+    },
+    {
+      "nhiType": "30",
+      "genType": "無",
+      "partType": "A15",
+      "visitSeqNo": "無",
+      "therapyBasic": "非療程",
+      "payType": "普通疾病"
+    }
+  ]
+}
